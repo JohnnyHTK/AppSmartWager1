@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 public class TelaCadastro extends AppCompatActivity {
 
-    EditText editNome, editEmail2, editSenha2;
+    EditText editNome, editEmail2, editSenha2, editSenha3;
     Button btnCancelar, btnRegistrar;
 
     String url = "";
@@ -28,6 +28,7 @@ public class TelaCadastro extends AppCompatActivity {
         editNome = (EditText) findViewById(R.id.editNome);
         editEmail2 = (EditText) findViewById(R.id.editEmail2);
         editSenha2 = (EditText) findViewById(R.id.editSenha2);
+        editSenha3 = (EditText) findViewById(R.id.editSenha3);
         btnCancelar = (Button) findViewById(R.id.btnCancelar);
         btnRegistrar = (Button) findViewById(R.id.btnRegistrar);
 
@@ -53,10 +54,17 @@ public class TelaCadastro extends AppCompatActivity {
                     String nome = editNome.getText().toString();
                     String email = editEmail2.getText().toString();
                     String senha = editSenha2.getText().toString();
+                    String senha2 = editSenha3.getText().toString();
+
 
                     if(nome.isEmpty() ||  email.isEmpty() || senha.isEmpty()){
-                        Toast.makeText(getApplicationContext(), "Nenhum campo pode estar vazio", Toast.LENGTH_LONG).show();
-                    } else {
+                        Toast.makeText(getApplicationContext(), "Nenhum campo pode estar vazio", Toast.LENGTH_SHORT).show();
+                    }
+                    else if (!senha.equals(senha2)){
+                        Toast.makeText(getApplicationContext(), "As senhas não correspondem", Toast.LENGTH_SHORT).show();
+                    }
+
+                    else {
 
                         url = "http://smartwager.atwebpages.com/registrar.php";
 
@@ -66,7 +74,7 @@ public class TelaCadastro extends AppCompatActivity {
                     }
 
                 }else{
-                    Toast.makeText(getApplicationContext(), "Nenhuma conexão foi detectada", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Nenhuma conexão foi detectada", Toast.LENGTH_SHORT).show();
                 }
 
             }

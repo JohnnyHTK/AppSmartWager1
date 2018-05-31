@@ -13,8 +13,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.IOException;
-
 public class TelaLogin extends AppCompatActivity {
 
     EditText editEmail1,editSenha1;
@@ -58,7 +56,7 @@ public class TelaLogin extends AppCompatActivity {
                     String senha = editSenha1.getText().toString();
 
                     if(email.isEmpty() || senha.isEmpty()){
-                        Toast.makeText(getApplicationContext(), "Nenhum campo pode estar vazio", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Nenhum campo pode estar vazio", Toast.LENGTH_SHORT).show();
                     } else {
 
                         url = "http://smartwager.atwebpages.com/logar.php";
@@ -69,7 +67,7 @@ public class TelaLogin extends AppCompatActivity {
                     }
 
                 }else{
-                    Toast.makeText(getApplicationContext(), "Nenhuma conexão foi detectada", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Nenhuma conexão foi detectada", Toast.LENGTH_SHORT).show();
                 }
 
 
@@ -92,10 +90,10 @@ public class TelaLogin extends AppCompatActivity {
     protected void onPostExecute(String resultado){
 
             if(resultado.contains("login_OK")){
-                Intent abreInicio = new Intent(TelaLogin.this, TelaInicial.class);
-                startActivity(abreInicio);
+                Intent abreInterna = new Intent(TelaLogin.this, Navigation.class);
+                startActivity(abreInterna);
             }else {
-                Toast.makeText(getApplicationContext(), "Usuário ou senha estão incorretos", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Usuário ou senha estão incorretos", Toast.LENGTH_SHORT).show();
 
             }
 

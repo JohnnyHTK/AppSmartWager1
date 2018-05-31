@@ -13,12 +13,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class TelaInterna extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class Navigation extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tela_interna);
+        setContentView(R.layout.navigation_geral);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -52,7 +52,7 @@ public class TelaInterna extends AppCompatActivity implements NavigationView.OnN
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.tela_interna, menu);
+        getMenuInflater().inflate(R.menu.navigation, menu);
         return true;
     }
 
@@ -77,9 +77,13 @@ public class TelaInterna extends AppCompatActivity implements NavigationView.OnN
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_inicio) {
+            TelaInicio telaInicio = new TelaInicio();
+            getSupportFragmentManager().beginTransaction().replace(R.id.tela_inicio, telaInicio).commit();
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
+            TelaDetalhes telaDetalhes = new TelaDetalhes();
+            getSupportFragmentManager().beginTransaction().replace(R.id.tela_inicio, telaDetalhes).commit();
 
         } else if (id == R.id.nav_slideshow) {
 
