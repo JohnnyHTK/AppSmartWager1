@@ -27,6 +27,6 @@ public class TelaDetalhes extends Fragment {
 
     }
 
-    WebView webView = 
+   
 
 }
